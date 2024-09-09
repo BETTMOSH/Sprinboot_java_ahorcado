@@ -1,0 +1,38 @@
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+
+}
+.h-custom {
+    height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}
+#btn-login{
+    background-color: #05397c;
+    border: 3px solid #d3c892;
+    text-align: center;
+    width: 30%;
+}
+#btn-login:hover{
+    background-color: #08381a;
+    color: #e8e8e8;
+}
+#bienve{
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 42px;
+}
+#olvido{
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 15px;
+}

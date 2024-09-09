@@ -1,0 +1,23 @@
+#victima{
+    width: 282px;
+    height: 362px;
+    background-repeat: no-repeat;
+}
+.uno {
+    background: url('../imagenes/1.png') ;
+}
+.dos {
+    background: url('../imagenes/2.png');
+}
+.tres {
+    background: url('../imagenes/3.PNG');
+}
+.cuatro {
+    background: url('../imagenes/4.PNG');
+}
+.cinco {
+    background: url('../imagenes/5.PNG');
+}
+.seis {
+    background: url('../imagenes/6.PNG');
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head  th:replace="~{fragmentos/head::encabezados(~{::title}, ~{})}">
+  <title>Juego del Ahorcado</title>
+  <meta charset="UTF-8">
+
+</head>
+<body > <nav th:replace="~{fragmentos/barra::barra}"></nav>
+<br>
+<br>
+<div class="container text-center">
+    <h1>Versión Spring del ahorcado</h1>
+    <h2>Lista de partidas</h2>
+
+<br>
+    <table sec:authorize="hasRole('ROLE_ADMIN')">
+        <thead>
+        <th>ID</th>
+        <th>Palabra oculta</th>
+        <th></th>
+        <th></th>
+        </thead>
+        <tbody>
+        <tr th:each="partida : ${listaPartidas}">
+            <td th:text="${partida.id}">ID</td>
+            <td th:text="${partida.palabraOculta}">palabra</td>
+            <td><a th:href="@{/partida/jugar/{id}(id=${partida.id})}">Jugar</a></td>
+            <td><a th:href="@{/partida/borrar/{id}(id=${partida.id})}">Borrar</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <form sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/addPartida}" method="post" >
+        <label id="añadir" for="palabra">Añade una nueva palabra: </label>
+        <input type="text" id="palabra" name="palabra" autofocus>
+        <input type="submit" class="btn btn-default btn-primary">
+        <div class="error" th:text="${msg}"></div>
+    </form>
+   <div>
+        <ul> <!--Aqui instanciamos el array de palabras creadas en el init. y le damos permisos.-->
+            <li sec:authorize="hasRole('ROLE_ADMIN')" th:each="palabra : ${palabrasRa}"> <!--Iterar sobre la lista de palabras -->
+                <span sec:authorize="hasRole('ROLE_ADMIN')" th:text="${palabrasRa}"> </span> <!--Mostrar cada palabra -->
+            </li>
+        </ul>
+    </div>
+    <a th:href="@{/partida/jugar/random}">
+        <button class="navegacion" >Partida random</button>
+    </a>
+
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+
+body{
+    background-image: url("../imagenes/fondoMK.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family:  sans-serif;
+}
+@media screen and (max-width: 768px) {
+    body {
+        background-size: contain;
+    }
+}
+/*estilos para el formulario*/
+label, p, h2{
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+button {
+    border: 3px solid #d3c892;
+    background-color: #05397c;
+}
+.navegacion{
+    background-color: #05397c;
+    color: #f5f5f5;
+    border-radius: 15px;
+    padding: 0.375rem 0.75rem;
+    width: 35%;
+    margin: 1em auto;
+}
+.container{
+    margin: 2rem;
+}
+/*estilos para las tablas*/
+table {
+    border-collapse: collapse;
+    background: whitesmoke;
+    border-radius: 15px 15px 0 0;
+    overflow:hidden;
+    max-width:800px;
+    width:100%;
+    margin:0 auto;
+    position:relative;
+}
+
+/*estilos para las filas y columnas*/
+th, td {
+    text-align: center;
+    border-bottom: 1px solid #d3c892;
+    border-collapse: collapse;
+}
+
+/*estilos para el encabezado de la tabla*/
+thead tr {
+    color: whitesmoke;
+    height:60px;
+    background:#05397c;
+    font-size:16px;
+}
+h1{
+    text-align: center;
+    color: #d90505;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 42px;
+}
+
+/*Cuadro de resultado (contine un título y una imagen)*/
+#resultado {
+    text-align: center;
+}
+#resultado img {
+    width: 50%;
+}
+/*huecos de letras*/
+.contenedor{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+.centrado{
+    position: absolute;
+    font-size: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*mensajes de error*/
+.error{
+    color: red;
+    font-style: italic;
+}
+.row{
+   padding-top: 15%;
+    margin: 0;
+}
+/*botones*/
+.btn{
+    background-color: #05397c;
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 0.375rem 0.75rem;
+    width: 20%;
+    margin: 1em auto;
+}

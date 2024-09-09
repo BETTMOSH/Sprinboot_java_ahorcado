@@ -1,0 +1,32 @@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" th:fragment="barra">
+  <div class="container-fluid">
+    <div class="navbar-nav">
+      <a class="navbar-brand" th:href="@{index}">Ahorcado</a>
+      <a class="nav-link" aria-current="page" href="/bienvenida"><i class="fa fa-home"></i>Inicio</a>
+      <a class="nav-link" th:href="@{/index}">Juegos</a>
+      <a class="nav-link" href="#">Comunidad</a>
+    </div>
+
+    <div class="navbar-nav ml-auto">
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          <span th:text="${#authentication.name}">Opciones</span> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">
+              <i class="fas fa-sign-out-alt"></i> Salir
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <form th:action="@{/logout}" method="post" id="logoutForm"></form>
+  </div>
+</nav>

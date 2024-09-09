@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragmentos/head::encabezados(~{::title}, ~{})}">
+    <meta charset="UTF-8">
+    <title>Final</title>
+</head>
+<body>
+<nav th:replace="~{fragmentos/barra::barra}"></nav>
+<div class="container-fluid text-center mt-3">
+    <h1></h1>
+    <br>
+    <br>
+    <div class="container text-center">
+        <div id="resultado">                     <!--Mensajes de fin de juego-->
+            <h1 th:text="${partida.intentos == 0} ? '¡Oh nooo!, has perdido' : '¡Enhorabuena!, has adivinado la palaba'">
+                Mensaje final </h1>
+            <img th:src="${partida.intentos == 0} ? '/imagenes/perdedor.jpg' : '/imagenes/ganador.jpg'" alt
+                 src="../static/imagenes/perdedor.jpg"/>
+        </div>
+        <h2>Resultados de la partida: </h2>
+        <table>
+            <thead>
+            <th></th>
+            <th>Resultados</th>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Palabra</th>    <!-- Datos que se instancian desde en metodo creaEstado en la entidad. -->
+                <td th:text="${partida.palabraOculta}">palabra</td>
+            </tr>
+            <tr>
+                <th>Tu respuesta</th>
+                <td>
+                    <div class="text-center"> <!-- El estado de la partida se muestra en forma de cuadros. -->
+                <span class="contenedor" th:each="hueco : ${partida.estado.toCharArray()}">
+                    <img src="../static/imgagenes/cuadro.PNG" th:src="@{/imagenes/cuadro.png}" alt="" width="30px"/>
+                    <span class="centrado" th:text="${hueco == '_'} ? ' ' : ${hueco}">A</span>
+                </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Intentos restantes</th>
+                <td th:text="${partida.intentos}">intentos</td>
+            </tr>
+            <tr>
+                <th>Letras falladas</th>
+                <td th:text="${partida.letrasFalladas}">letras falladas</td>
+            </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/partida/jugar/random}">
+            <button class="navegacion">Jugar otra partida</button>
+        </a> <br/>
+        <a th:href="@{/}">
+            <button class="navegacion">Ir al inicio</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>
